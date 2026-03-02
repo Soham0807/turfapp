@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TurfApp | Sports Facility Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav">
+        <h1 class="brand">TurfApp</h1>
+        <div class="nav-links">
+          <a href="#facilities">Facilities</a>
+          <a href="#booking">Book Now</a>
+          <button class="btn btn-secondary">Sign In</button>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <p class="eyebrow">Book, play, repeat</p>
+        <h2>Find and reserve top sports facilities in seconds.</h2>
+        <p>
+          Discover football turfs, badminton courts, and cricket nets near you,
+          compare time slots, and confirm bookings instantly.
+        </p>
+        <button class="btn btn-primary">Start Booking</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="search-panel" id="booking">
+        <h3>Quick Search</h3>
+        <form class="search-grid">
+          <label>
+            Sport
+            <select>
+              <option>Football</option>
+              <option>Cricket</option>
+              <option>Badminton</option>
+              <option>Tennis</option>
+            </select>
+          </label>
+          <label>
+            Date
+            <input type="date" />
+          </label>
+          <label>
+            Start Time
+            <input type="time" />
+          </label>
+          <label>
+            City
+            <input type="text" placeholder="Enter city" />
+          </label>
+          <button class="btn btn-primary" type="button">Search Slots</button>
+        </form>
+      </section>
+
+      <section class="facility-list" id="facilities">
+        <h3>Popular Facilities</h3>
+        <div class="cards" id="facilityCards"></div>
+      </section>
+    </main>
+
+    <template id="facilityTemplate">
+      <article class="card">
+        <div class="card-header">
+          <h4 class="facility-name"></h4>
+          <span class="rating"></span>
+        </div>
+        <p class="facility-meta"></p>
+        <p class="facility-price"></p>
+        <div class="slots"></div>
+        <button class="btn btn-secondary full-width">Book This Slot</button>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
