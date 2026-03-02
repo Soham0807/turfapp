@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TurfApp | Sports Facility Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav">
+        <h1 class="brand">TurfApp</h1>
+        <div class="nav-links">
+          <a href="#facilities">Facilities</a>
+          <a href="#booking">Book Now</a>
+          <a href="#payment">Payment</a>
+          <button class="btn btn-secondary" id="signInBtn">Sign In</button>
+          <button class="btn btn-secondary hidden" id="signOutBtn">Sign Out</button>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <p class="eyebrow">Book, play, repeat</p>
+        <h2>Find and reserve top sports facilities in seconds.</h2>
+        <p>
+          Discover football turfs, badminton courts, and cricket nets near you,
+          compare time slots, and confirm bookings instantly.
+        </p>
+        <button class="btn btn-primary" id="startBookingBtn">Start Booking</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="search-panel" id="booking">
+        <h3>Quick Search</h3>
+        <form class="search-grid">
+          <label>
+            Sport
+            <select>
+              <option>Football</option>
+              <option>Cricket</option>
+              <option>Badminton</option>
+              <option>Tennis</option>
+            </select>
+          </label>
+          <label>
+            Date
+            <input type="date" />
+          </label>
+          <label>
+            Start Time
+            <input type="time" />
+          </label>
+          <label>
+            City
+            <input type="text" placeholder="Enter city" />
+          </label>
+          <button class="btn btn-primary" type="button">Search Slots</button>
+        </form>
+      </section>
+
+      <section class="facility-list" id="facilities">
+        <h3>Popular Facilities</h3>
+        <div class="cards" id="facilityCards"></div>
+      </section>
+
+      <section class="payment-panel" id="payment">
+        <h3>Payment</h3>
+        <p class="muted" id="paymentHint">Select a facility to proceed to payment.</p>
+        <div class="selected-booking hidden" id="selectedBooking"></div>
+
+        <form id="paymentForm" class="payment-form hidden">
+          <label>
+            Cardholder Name
+            <input type="text" id="cardName" placeholder="John Doe" required />
+          </label>
+          <label>
+            Card Number
+            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required />
+          </label>
+          <div class="payment-row">
+            <label>
+              Expiry
+              <input type="text" id="expiry" placeholder="MM/YY" required />
+            </label>
+            <label>
+              CVV
+              <input type="password" id="cvv" placeholder="123" required />
+            </label>
+          </div>
+          <button class="btn btn-primary" type="submit">Pay Now</button>
+        </form>
+        <p class="success hidden" id="paymentSuccess"></p>
+      </section>
+    </main>
+
+    <dialog id="authDialog" class="dialog">
+      <form method="dialog" id="authForm" class="dialog-form">
+        <h3>Sign In</h3>
+        <p class="muted">Any credentials are accepted for this demo.</p>
+        <label>
+          Email
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </label>
+        <label>
+          Password
+          <input type="password" id="password" placeholder="••••••••" required />
+        </label>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" value="cancel">Cancel</button>
+          <button class="btn btn-primary" id="authSubmit" value="default">Continue</button>
+        </div>
+      </form>
+    </dialog>
+
+    <template id="facilityTemplate">
+      <article class="card">
+        <div class="card-header">
+          <h4 class="facility-name"></h4>
+          <span class="rating"></span>
+        </div>
+        <p class="facility-meta"></p>
+        <p class="facility-price"></p>
+        <div class="slots"></div>
+        <button class="btn btn-secondary full-width book-btn">Book This Slot</button>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
